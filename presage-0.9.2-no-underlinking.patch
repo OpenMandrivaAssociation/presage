@@ -1,0 +1,19 @@
+diff -up presage-0.9.2~beta/apps/gtk/gpresagemate/Makefile.am.omv~ presage-0.9.2~beta/apps/gtk/gpresagemate/Makefile.am
+--- presage-0.9.2~beta/apps/gtk/gpresagemate/Makefile.am.omv~	2020-08-20 04:41:29.961114909 +0200
++++ presage-0.9.2~beta/apps/gtk/gpresagemate/Makefile.am	2020-08-20 04:41:33.952160990 +0200
+@@ -27,7 +27,7 @@ bin_PROGRAMS =		gpresagemate
+ 
+ gpresagemate_SOURCES = 	gpresagemate.cpp
+ gpresagemate_CPPFLAGS =	$(GNOME_CFLAGS) $(GTHREAD_CFLAGS) -I$(top_srcdir)/src/lib
+-gpresagemate_LDADD = 	$(GNOME_LIBS) $(GTHREAD_LIBS) -lXevie ../../../src/lib/libpresage.la
++gpresagemate_LDADD = 	$(GNOME_LIBS) $(GTHREAD_LIBS) -lXevie -lX11 ../../../src/lib/libpresage.la
+ 
+ # if HAVE_HELP2MAN
+ # gpresagemate.1:	gpresagemate$(EXEEXT) gpresagemate.cpp $(top_srcdir)/configure.ac
+@@ -38,4 +38,4 @@ gpresagemate_LDADD = 	$(GNOME_LIBS) $(GT
+ # DISTCLEANFILES =	gpresagemate.1
+ # endif
+ 
+-endif
+\ No newline at end of file
++endif
