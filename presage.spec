@@ -71,6 +71,13 @@ Requires:	%{libname} = %{EVRD}
 %description dbus
 D-Bus bindings for the predictive text entry system library
 
+%package text2ngram
+Summary:	Generate statistical n-gram data from text
+Group:		System/Libraries
+
+%description text2ngram
+Generate statistical n-gram data from text
+
 %package gprompter
 Summary:	Gprompter application showcasing the predictive text entry system library
 Group:		System/Libraries
@@ -107,6 +114,10 @@ EOF
 %files
 %{_datadir}/presage
 
+%files text2ngram
+%{_bindir}/text2ngram
+%{_mandir}/man1/text2ngram.1*
+
 %files gprompter
 %{_datadir}/applications/gprompter.desktop
 %{_datadir}/icons/hicolor/scalable/apps/gprompter.svg
@@ -114,7 +125,6 @@ EOF
 %{_mandir}/man1/presage_demo.1*
 %{_mandir}/man1/presage_demo_text.1*
 %{_mandir}/man1/presage_simulator.1*
-%{_mandir}/man1/text2ngram.1*
 %{_datadir}/pixmaps/gprompter.png
 %{_datadir}/pixmaps/gprompter.xpm
 %{_sysconfdir}/presage.xml
@@ -123,7 +133,6 @@ EOF
 %{_bindir}/presage_demo
 %{_bindir}/presage_demo_text
 %{_bindir}/presage_simulator
-%{_bindir}/text2ngram
 
 %files -n python-presage
 %{_prefix}/lib/python*/site-packages/__pycache__/*
