@@ -42,6 +42,7 @@ BuildRequires:	boost-mpl-devel
 BuildRequires:	boost-preprocessor-devel
 BuildRequires:	boost-type_traits-devel
 BuildRequires:	boost-core-devel
+BuildRequires:	boost-utility-devel
 Group:		System/Libraries
 
 %description
