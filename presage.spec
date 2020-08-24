@@ -40,6 +40,7 @@ BuildRequires:	boost-algorithm-devel
 BuildRequires:	boost-range-devel
 BuildRequires:	boost-mpl-devel
 BuildRequires:	boost-preprocessor-devel
+BuildRequires:	boost-type_traits-devel
 Group:		System/Libraries
 
 %description
