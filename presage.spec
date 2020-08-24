@@ -37,6 +37,7 @@ BuildRequires:	doxygen
 BuildRequires:	graphviz
 BuildRequires:	desktop-file-utils
 BuildRequires:	boost-algorithm-devel
+BuildRequires:	boost-range-devel
 Group:		System/Libraries
 
 %description
