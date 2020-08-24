@@ -39,6 +39,7 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	boost-algorithm-devel
 BuildRequires:	boost-range-devel
 BuildRequires:	boost-mpl-devel
+BuildRequires:	boost-preprocessor-devel
 Group:		System/Libraries
 
 %description
