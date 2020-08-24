@@ -1,0 +1,68 @@
+From c759d733ee482eca320d7b9724e244bb5cea52ce Mon Sep 17 00:00:00 2001
+From: Mike Sheldon <elleo@gnu.org>
+Date: Wed, 12 Nov 2014 22:34:50 +0000
+Subject: [PATCH] Stop the tokenizer from splitting based on apostrophes and
+ allow for the escaping of words containing apostrophes in the database
+ connector.
+
+---
+ src/lib/core/charsets.h                              | 1 -
+ src/lib/predictors/dbconnector/databaseConnector.cpp | 9 +++------
+ src/tools/text2ngram.cpp                             | 2 +-
+ 3 files changed, 4 insertions(+), 8 deletions(-)
+
+diff --git a/src/lib/core/charsets.h b/src/lib/core/charsets.h
+index 1c74d76..c1a6bc0 100644
+--- a/src/lib/core/charsets.h
++++ b/src/lib/core/charsets.h
+@@ -180,7 +180,6 @@ const char DEFAULT_SEPARATOR_CHARS[]={
+     '$',
+     '%',
+     '&',
+-    '\'',
+     '(',
+     ')',
+     '*',
+diff --git a/src/lib/predictors/dbconnector/databaseConnector.cpp b/src/lib/predictors/dbconnector/databaseConnector.cpp
+index 15de52a..bfcc38e 100644
+--- a/src/lib/predictors/dbconnector/databaseConnector.cpp
++++ b/src/lib/predictors/dbconnector/databaseConnector.cpp
+@@ -30,6 +30,7 @@
+ #include <sstream>
+ #include <stdlib.h>
+ #include <assert.h>
++#include <boost/algorithm/string/replace.hpp>
+ 
+ DatabaseConnector::DatabaseConnector(const std::string database_name,
+ 				     const size_t cardinality,
+@@ -293,12 +294,8 @@ std::string DatabaseConnector::buildValuesClause(const Ngram ngram, const int co
+ 
+ std::string DatabaseConnector::sanitizeString(const std::string str) const
+ {
+-    // TODO
+-    // just return the string for the time being
+-    // REVISIT
+-    // TO BE DONE
+-    // TBD
+-    return str;
++    // Escape single quotes
++    return boost::replace_all_copy(str, "'", "''");
+ }
+ 
+ int DatabaseConnector::extractFirstInteger(const NgramTable& table) const
+diff --git a/src/tools/text2ngram.cpp b/src/tools/text2ngram.cpp
+index 807aa83..20a59f7 100644
+--- a/src/tools/text2ngram.cpp
++++ b/src/tools/text2ngram.cpp
+@@ -174,7 +174,7 @@ int main(int argc, char* argv[])
+ 	std::ifstream infile(argv[i]);
+ 	ForwardTokenizer tokenizer(infile,
+ 				   " \f\n\r\t\v",
+-				   "`~!@#$%^&*()_-+=\\|]}[{'\";:/?.>,<");
++				   "`~!@#$%^&*()_-+=\\|]}[{\";:/?.>,<");
+ 	tokenizer.lowercaseMode(lowercase);
+ 
+ 	// take care of first N-1 tokens
+-- 
+2.1.0
+

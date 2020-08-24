@@ -1,0 +1,35 @@
+From 05ae03efb3fcf2877cac90be44d9844a857463f7 Mon Sep 17 00:00:00 2001
+From: Michael Sheldon <elleo@gnu.org>
+Date: Wed, 28 Sep 2016 12:43:39 +0100
+Subject: [PATCH] Add missing ONLINE_LEARNING configuration value to
+ defaultProfile
+
+---
+ src/lib/core/defaultProfile.cpp | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/src/lib/core/defaultProfile.cpp b/src/lib/core/defaultProfile.cpp
+index 0cd7061..36a66b3 100644
+--- a/src/lib/core/defaultProfile.cpp
++++ b/src/lib/core/defaultProfile.cpp
+@@ -62,7 +62,16 @@ void DefaultProfile::build_xml_document (const std::string& filename)
+ "        <!-- LOWERCASE_MODE"
+ "          Instruct context tracker to track text as lowercase"
+ "        -->"
+-"         <LOWERCASE_MODE>yes</LOWERCASE_MODE>"
++"        <LOWERCASE_MODE>yes</LOWERCASE_MODE>"
++"        <!-- ONLINE_LEARNING"
++"          Controls presage online machine learning feature."
++"          Presage is context-aware and capable of dynamic online learning."
++"          Setting this to yes/true will enable online learning mode."
++"          Setting this to no/false will disable online learning mode."
++"          When online learning mode is disabled, it is still"
++"          possible to instruct presage to learn through its API."
++"        -->"
++"        <ONLINE_LEARNING>yes</ONLINE_LEARNING>"
+ "    </ContextTracker>"
+ "    <Selector>"
+ "        <LOGGER>ERROR</LOGGER>"
+-- 
+2.7.4
+

@@ -5,11 +5,13 @@
 Name:		presage
 Summary:	Predictive text entry system library
 Version:	0.9.2
-Release:	%{?beta:0.%{beta}.}1
+Release:	%{?beta:0.%{beta}.}2
 Url:		https://presage.sourceforge.io/
 Source0:	https://master.dl.sourceforge.net/project/presage/presage/%{version}~beta/presage-%{version}~%{beta}.tar.gz
 Patch0:		presage-0.9.2-compile.patch
 Patch1:		presage-0.9.2-no-underlinking.patch
+Patch2:		https://sourceforge.net/p/presage/patches/3/attachment/0001-Add-missing-ONLINE_LEARNING-configuration-value-to-d.patch
+Patch3:		https://sourceforge.net/p/presage/patches/2/attachment/fix-apostrophes.patch
 License:	GPLv2
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python
