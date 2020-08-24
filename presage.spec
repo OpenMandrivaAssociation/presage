@@ -36,6 +36,7 @@ BuildRequires:	python-dbus
 BuildRequires:	doxygen
 BuildRequires:	graphviz
 BuildRequires:	desktop-file-utils
+BuildRequires:	boost-algorithm-devel
 Group:		System/Libraries
 
 %description
