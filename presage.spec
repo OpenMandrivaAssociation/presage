@@ -13,6 +13,11 @@ Patch1:		presage-0.9.2-no-underlinking.patch
 Patch2:		https://sourceforge.net/p/presage/patches/3/attachment/0001-Add-missing-ONLINE_LEARNING-configuration-value-to-d.patch
 Patch3:		https://sourceforge.net/p/presage/patches/2/attachment/fix-apostrophes.patch
 License:	GPLv2
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python
 BuildRequires:	help2man
